@@ -6,7 +6,6 @@ WhatsMyRep is a simple board displaying developers reputation based on TFS work 
 * Node.js
 * Express.js
 * Jade
-* Stylus
 
 ### License
 [MIT License](https://github.com/spartanbeg/WhatsMyRep/blob/master/LICENSE)
