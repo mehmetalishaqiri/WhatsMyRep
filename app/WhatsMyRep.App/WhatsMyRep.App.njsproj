@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>WhatsMyRep.App</Name>
+    <RootNamespace>WhatsMyRep.App</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>564a7763-c28c-40f3-abf0-86d507d6c5e0</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>bin\www</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="public\js\Chart.js" />
+    <Compile Include="public\js\clndr.js" />
+    <Compile Include="public\js\jquery.easing.js" />
+    <Compile Include="public\js\jquery.js" />
+    <Compile Include="public\js\jquery.ulslide.js" />
+    <Compile Include="public\js\json2.js" />
+    <Compile Include="public\js\login.js" />
+    <Compile Include="public\js\moment-2.2.1.js" />
+    <Compile Include="public\js\responsive-nav.js" />
+    <Compile Include="public\js\site.js" />
+    <Compile Include="public\js\underscore-min.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="bin\www" />
+    <Content Include="package.json" />
+    <Content Include="public\css\style.css" />
+    <Content Include="public\fonts\Amble-Regular-webfont.ttf" />
+    <Content Include="public\images\arrow-left.png" />
+    <Content Include="public\images\arrow-right.png" />
+    <Content Include="public\images\chart.png" />
+    <Content Include="public\images\clouds.png" />
+    <Content Include="public\images\comments.png" />
+    <Content Include="public\images\download.png" />
+    <Content Include="public\images\events-hover.png" />
+    <Content Include="public\images\events.png" />
+    <Content Include="public\images\facebook.png" />
+    <Content Include="public\images\facebook_icon.png" />
+    <Content Include="public\images\favourite.png" />
+    <Content Include="public\images\follow_user.png" />
+    <Content Include="public\images\google+.png" />
+    <Content Include="public\images\graph.png" />
+    <Content Include="public\images\icons.psd" />
+    <Content Include="public\images\invites-hover.png" />
+    <Content Include="public\images\invites.png" />
+    <Content Include="public\images\likes.png" />
+    <Content Include="public\images\location.png" />
+    <Content Include="public\images\lock.png" />
+    <Content Include="public\images\loginArrow.png" />
+    <Content Include="public\images\logo.png" />
+    <Content Include="public\images\mail-hover.png" />
+    <Content Include="public\images\mail.png" />
+    <Content Include="public\images\nav.png" />
+    <Content Include="public\images\profile_img150x150.jpg" />
+    <Content Include="public\images\profile_img40x40.jpg" />
+    <Content Include="public\images\settings-hover.png" />
+    <Content Include="public\images\settings.png" />
+    <Content Include="public\images\statistics-hover.png" />
+    <Content Include="public\images\statistics.png" />
+    <Content Include="public\images\sun.png" />
+    <Content Include="public\images\sun_icon1.png" />
+    <Content Include="public\images\sun_icon2.png" />
+    <Content Include="public\images\Thumbs.db" />
+    <Content Include="public\images\tweets.png" />
+    <Content Include="public\images\upload.png" />
+    <Content Include="public\images\user.png" />
+    <Content Include="public\images\views.png" />
+    <Content Include="README.md" />
+    <Content Include="views\index.jade" />
+    <Content Include="views\layout.jade" />
+    <Content Include="views\error.jade" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\fonts\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\js\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

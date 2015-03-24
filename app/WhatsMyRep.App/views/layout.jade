@@ -1,0 +1,30 @@
+﻿doctype html
+html
+  head
+    title #{title}
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    meta(name="description", content="A simple board displaying developers reputation on a given team project.")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="author", content="Mehmetali Shaqiri")
+    link(href="css/style.css", rel="stylesheet", type="text/css", media="all")
+    link(href="http://fonts.googleapis.com/css?family=Carrois+Gothic+SC", rel="stylesheet", type="text/css")    
+  body
+    .wrap
+      .header
+        img(src="images/logo.png")
+        h2 What"s My Rep?
+        span A simple board displaying developers reputation on [PROJECT NAME]
+    .main
+      .wrap
+        block content
+        .clear
+    .copy-right
+      p
+        | &nbsp;&#169;  &nbsp; 2015&nbsp;
+        a(href="https://github.com/spartanbeg", target="_blank") Mehmetali Shaqiri
+        | &nbsp;&#8226; &nbsp;
+        a(href="https://github.com/spartanbeg/WhatsMyRep/blob/master/LICENSE", target="_blank") MIT License
+        | &nbsp;&#8226; &nbsp;
+        a(href="https://github.com/spartanbeg/WhatsMyRep", target="_blank") GitHub
+        | &nbsp;&#8226;&nbsp; Template by
+        a(href="http://w3layouts.com", target="_blank")&nbsp; w3layouts
