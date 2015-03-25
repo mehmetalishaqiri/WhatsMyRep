@@ -194,4 +194,4 @@ FakesAssemblies/
 *.opt
 
 # Do not ignore www file
-!bin/www
+!app/bin/www

@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var debug = require('debug')('WhatsMyRep');
+var app = require('../app');
+var fs = require('fs');
+
+app.set('port', process.env.PORT || 3000);
+
+process.on('uncaughtException', function (err) {
+    fs.writeFileSync("log.txt",  err, "utf8");    
+})
+
+var server = app.listen(app.get('port'), function() {
+    debug('WhatsMyRep server listening on port ' + server.address().port);
+});
