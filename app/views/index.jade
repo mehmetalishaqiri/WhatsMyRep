@@ -1,88 +1,27 @@
 ﻿extends layout
 
+var developers = #{developers}
+
 block content
         .column_middle
+         each member,index in developers
           .column_middle_grid1
-            .profile_picture
-              a(href="")
-                img(src="https://avatars0.githubusercontent.com/u/168850?v=3&s=460", alt="", width="180")
+            .profile_picture              
+              img(src="#{member.Gravatar}", alt="", width="180")
               .profile_picture_name
-                h2 Mehmetali Shaqiri
+                h2 #{index + 1}. #{member.Developer}               
             .articles_list
               ul
                 li
                   a.red(href="#")
-                    img(src="images/comments.png", alt="")
-                    | 23
+                    img(src="images/bug.png", alt="", width=20)
+                    | #{member.BugsResolved}
                 li
                   a.purple(href="#")
-                    img(src="images/views.png", alt="")
-                    | 841
+                    img(src="images/tasks.png", alt="" ,width=20)
+                    | #{member.CompletedTasks}
                 li
                   a.yellow(href="#")
-                    img(src="images/likes.png", alt="")
-                    | 49
-                .clear
-          .column_middle_grid1
-            .profile_picture
-              a(href="")
-                img(src="https://avatars0.githubusercontent.com/u/168850?v=3&s=460", alt="", width="180")
-              .profile_picture_name
-                h2 Mehmetali Shaqiri
-            .articles_list
-              ul
-                li
-                  a.red(href="#")
-                    img(src="images/comments.png", alt="")
-                    | 23
-                li
-                  a.purple(href="#")
-                    img(src="images/views.png", alt="")
-                    | 841
-                li
-                  a.yellow(href="#")
-                    img(src="images/likes.png", alt="")
-                    | 49
-                .clear
-          .column_middle_grid1
-            .profile_picture
-              a(href="")
-                img(src="https://avatars0.githubusercontent.com/u/168850?v=3&s=460", alt="", width="180")
-              .profile_picture_name
-                h2 Mehmetali Shaqiri
-            .articles_list
-              ul
-                li
-                  a.red(href="#")
-                    img(src="images/comments.png", alt="")
-                    | 23
-                li
-                  a.purple(href="#")
-                    img(src="images/views.png", alt="")
-                    | 841
-                li
-                  a.yellow(href="#")
-                    img(src="images/likes.png", alt="")
-                    | 49
-                .clear
-          .column_middle_grid1
-            .profile_picture
-              a(href="")
-                img(src="https://avatars0.githubusercontent.com/u/168850?v=3&s=460", alt="", width="180")
-              .profile_picture_name
-                h2 Mehmetali Shaqiri
-            .articles_list
-              ul
-                li
-                  a.red(href="#")
-                    img(src="images/comments.png", alt="")
-                    | 23
-                li
-                  a.purple(href="#")
-                    img(src="images/views.png", alt="")
-                    | 841
-                li
-                  a.yellow(href="#")
-                    img(src="images/likes.png", alt="")
-                    | 49
+                    img(src="images/logo.png", alt="",width=20)
+                    | #{member.Total}
                 .clear

@@ -5,6 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>WhatsMyRep.App</Name>
     <RootNamespace>WhatsMyRep.App</RootNamespace>
+    <NameOfLastUsedPublishProfile>Local</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -44,11 +45,13 @@
     <Compile Include="public\js\underscore-min.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="bin\www" />
+    <None Include="Local.pubxml" />
     <Content Include="package.json" />
     <Content Include="public\css\style.css" />
     <Content Include="public\fonts\Amble-Regular-webfont.ttf" />
     <Content Include="public\images\arrow-left.png" />
     <Content Include="public\images\arrow-right.png" />
+    <Content Include="public\images\bug.png" />
     <Content Include="public\images\chart.png" />
     <Content Include="public\images\clouds.png" />
     <Content Include="public\images\comments.png" />
@@ -81,15 +84,16 @@
     <Content Include="public\images\sun.png" />
     <Content Include="public\images\sun_icon1.png" />
     <Content Include="public\images\sun_icon2.png" />
+    <Content Include="public\images\tasks.png" />
     <Content Include="public\images\Thumbs.db" />
     <Content Include="public\images\tweets.png" />
     <Content Include="public\images\upload.png" />
     <Content Include="public\images\user.png" />
     <Content Include="public\images\views.png" />
-    <Content Include="README.md" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\error.jade" />
+    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

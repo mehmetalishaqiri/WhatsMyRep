@@ -679,7 +679,8 @@ fieldset#body {
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     float: left;
-    margin: 3px;
+    margin: 0.5%;
+    width: 22%;
 }
 
 .profile_picture {
@@ -1445,28 +1446,28 @@ fieldset#body {
                 right: 4.4em;
             }
     }
+}
 
-    .header img {
-        height: 40px;
-        float: left;
-    }
+.logo {
+    height: 40px;
+    float: left;
+}
 
-    .header {
-        border-bottom: 1px solid #e64c65;
-        height: 45px;
-    }
+.header-line {
+    border-bottom: 1px solid #e64c65;
+    height: 45px;
+}
 
-        .header h2 {
-            float: left;
-            color: #fff;
-            font-size: 1.7em;
-            padding-top: 6px;
-        }
+.title {
+    float: left;
+    color: #fff;
+    font-size: 1.7em;
+    padding-top: 6px;
+}
 
-        .header span {
-            color: #fff;
-            font-size: 1em;
-            padding-top: 12px;
-            float: right;
-        }
+.desc {
+    color: #fff;
+    font-size: 1em;
+    padding-top: 12px;
+    float: right;
 }
