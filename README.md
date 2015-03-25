@@ -10,6 +10,7 @@ WhatsMyRep is a simple board displaying developers reputation based on TFS work 
 #### Quick start
 * Download WhatsMyRep Api and published it in IIS.
     * Don't forget to update TfsCollection application settings in web.config
+    * Update the developers.json file (App_Data/developers.json). Update the name (same as in TFS) and the email of the developers.It is used mainly for generating Gravatars.
 * Download WhatsMyRep [Node.js](https://nodejs.org/) client
     * Don't forget to update api url in routes/index.js file
 * Install WhatsMyRep as windows service by executing install-windows-service script.
