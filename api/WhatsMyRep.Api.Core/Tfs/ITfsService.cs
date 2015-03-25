@@ -28,5 +28,7 @@ namespace WhatsMyRep.Api.Core.Tfs
     public interface ITfsService
     {
         IEnumerable<WorkItemModel> GetWorkItems();
+
+        IEnumerable<ReputationModel> GetDeveloperReputations();
     }
 }

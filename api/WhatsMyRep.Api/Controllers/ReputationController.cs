@@ -20,40 +20,30 @@
     SOFTWARE. 
  */
 
-
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 using WhatsMyRep.Api.Common;
 using WhatsMyRep.Api.Core.Tfs;
 
 namespace WhatsMyRep.Api.Controllers
 {
-    /// <summary>
-    /// Work Item Api Controller
-    /// </summary>
-    public class WorkItemsController : ApiController
+    public class ReputationController : ApiController
     {
         private readonly ITfsService _tfsService;
 
-        public WorkItemsController(ITfsService tfsService)
+        public ReputationController(ITfsService tfsService)
         {
             _tfsService = tfsService;
         }
 
         /// <summary>
-        /// Get all work items of a given team project in TFS
+        /// Get developers reputation
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<WorkItemModel>> Get()
+        public async Task<IEnumerable<ReputationModel>> Get()
         {
-            return await Task.Run(() => _tfsService.GetWorkItems());
+            return await Task.Run(() => _tfsService.GetDeveloperReputations());
         }
     }
 }

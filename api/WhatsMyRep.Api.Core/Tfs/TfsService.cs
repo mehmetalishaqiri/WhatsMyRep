@@ -23,28 +23,35 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using Microsoft.SqlServer.Server;
+using System.Web;
 using Microsoft.TeamFoundation.Client;
+using Microsoft.TeamFoundation.Framework.Common;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using WhatsMyRep.Api.Common;
+using Microsoft.TeamFoundation.Server;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace WhatsMyRep.Api.Core.Tfs
 {
     public class TfsService : ITfsService
     {
+        #region Private members
+
         /// <summary>
         /// TFS Team Project Collection Url
         /// </summary>
-        private readonly string _tfsCollection = ConfigurationManager.AppSettings["TfsCollection"];
+        private readonly Uri _tfsCollection = new Uri(ConfigurationManager.AppSettings["TfsCollection"]);
 
-        private readonly string _projectName = ConfigurationManager.AppSettings["ProjectName"];
+        #endregion
 
+        #region GetWorkItems
 
         public IEnumerable<WorkItemModel> GetWorkItems()
         {
-            var tfs = TfsTeamProjectCollectionFactory.GetTeamProjectCollection(new Uri(_tfsCollection));
+            var tfs = TfsTeamProjectCollectionFactory.GetTeamProjectCollection(_tfsCollection);
 
             tfs.EnsureAuthenticated();
 
@@ -53,10 +60,10 @@ namespace WhatsMyRep.Api.Core.Tfs
             var workItems = new List<WorkItemModel>();
 
 
-            var query = String.Format(@"SELECT [System.Id], [System.WorkItemType]," +
-                                  " [System.State], [System.AssignedTo], [System.Title]" +
-                                  " FROM WorkItems" +
-                                  " WHERE [System.TeamProject] = '{0}'", _projectName);
+            const string query = @"SELECT [System.Id], [System.WorkItemType]," +
+                                 " [System.State], [System.AssignedTo], [System.Title]" +
+                                 " FROM WorkItems" +
+                                 " WHERE [System.WorkItemType] IN ('Task','Product Backlog Item','Bug') AND [System.State] = 'Done'";
 
             var items = workItemStore.Query(query).Cast<WorkItem>().Select(wi => new
             {
@@ -90,13 +97,48 @@ namespace WhatsMyRep.Api.Core.Tfs
                     Title = item.Title,
                     State = item.State,
                     Type = item.Type,
-                    AssignedTo = assignedTo,                    
+                    AssignedTo = assignedTo,
                     CreatedBy = createdBy
                 });
             }
 
             return workItems;
         }
-        
+
+        #endregion
+
+        #region GetDeveloperReputations
+
+        public IEnumerable<ReputationModel> GetDeveloperReputations()
+        {
+            var workItems = GetWorkItems().ToList();
+
+            var jsonPath = System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/developers.json");
+
+            if (!String.IsNullOrEmpty(jsonPath) && File.Exists(jsonPath))
+            {
+                var json = File.ReadAllText(jsonPath);
+
+                var developers = JsonConvert.DeserializeObject<IEnumerable<TeamMember>>(json).ToList();
+
+                var query = from q in workItems
+                    join d in developers on q.AssignedTo equals d.Name
+                    group q by new {q.AssignedTo, d.Email}
+                    into grp
+                    select new ReputationModel
+                    {
+                        Developer = grp.Key.AssignedTo,
+                        Email = grp.Key.Email,
+                        BugsResolved = grp.Count(g => g.Type == "Bug"),
+                        CompletedTasks = grp.Count(g => g.Type == "Task" || g.Type == "Product Backlog Item")
+                    };
+
+                return query.OrderByDescending(w => w.Total).ToList();
+            }
+
+            return new List<ReputationModel>();
+        }
+
+        #endregion
     }
 }

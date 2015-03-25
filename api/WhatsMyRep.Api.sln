@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsMyRep.Api.Core", "What
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsMyRep.Api", "WhatsMyRep.Api\WhatsMyRep.Api.csproj", "{9119919D-FE46-427D-801F-AF58DE077383}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsMyRep.Api.Shared", "WhatsMyRep.Api.Shared\WhatsMyRep.Api.Shared.csproj", "{57D5BAF2-979D-40DA-894D-9E69A46FCF1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9119919D-FE46-427D-801F-AF58DE077383}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9119919D-FE46-427D-801F-AF58DE077383}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9119919D-FE46-427D-801F-AF58DE077383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D5BAF2-979D-40DA-894D-9E69A46FCF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D5BAF2-979D-40DA-894D-9E69A46FCF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D5BAF2-979D-40DA-894D-9E69A46FCF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D5BAF2-979D-40DA-894D-9E69A46FCF1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
