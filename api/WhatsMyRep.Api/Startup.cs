@@ -20,31 +20,31 @@
     SOFTWARE. 
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using Microsoft.Owin;
+using Newtonsoft.Json;
 using Ninject;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
+using WhatsMyRep.Api;
+using WhatsMyRep.Api.Core.Json;
 using WhatsMyRep.Api.Core.Tfs;
 
-[assembly: OwinStartup(typeof(WhatsMyRep.Api.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace WhatsMyRep.Api
 {
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
-        {            
+        {
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
 
             var config = new HttpConfiguration();
-                        
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -54,6 +54,12 @@ namespace WhatsMyRep.Api
             );
 
             app.UseNinjectMiddleware(CreateKernel).UseNinjectWebApi(config);
+
+            // make sure browsers get JSON without compromising content negotiation from clients that actually want XML.
+            config.Formatters.Add(new JsonFormatter()
+            {
+                SerializerSettings = { ReferenceLoopHandling = ReferenceLoopHandling.Ignore }
+            });
         }
 
         private static StandardKernel CreateKernel()
