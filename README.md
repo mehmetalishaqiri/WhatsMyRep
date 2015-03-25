@@ -19,8 +19,6 @@ npm run-script install-windows-service
 * Start WhatsMyRep windows service. WhatMyRep app will be live at http://localhost:3000
 
 
-
-
 ### What it looks like ###
 ![WhatsMyRep Screenshot](https://mshaqiri.files.wordpress.com/2015/03/whatsmyrep.png)
 
