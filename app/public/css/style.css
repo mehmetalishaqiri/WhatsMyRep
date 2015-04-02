@@ -684,7 +684,7 @@ fieldset#body {
 }
 
 .profile_picture {
-    padding: 1em 3em;
+    padding: 1em 1em 0em 1em;
     text-align: center;
     position: relative;
 }
@@ -699,7 +699,7 @@ fieldset#body {
         display: block;
     }
 
-    .profile_picture > a > img {
+    .profile_picture >  img {
         display: block;
         margin: 0 auto;
         border: 5px solid #50597B;
@@ -710,11 +710,12 @@ fieldset#body {
     }
 
 .profile_picture_name {
-    padding-top: 1em;
+    padding: 0.3em;
+    text-align: center;
 }
 
     .profile_picture_name h2 {
-        font-size: 1.5em;
+        font-size: 0.8em;
         color: #FFF;
     }
 
@@ -735,7 +736,7 @@ fieldset#body {
 
     .articles_list li {
         float: left;
-        width: 33.1%;
+        width: 33%;
         border-right: 1px solid #1F253D;
     }
 
@@ -743,7 +744,7 @@ fieldset#body {
             display: block;
             color: #FFF;
             font-size: 1em;
-            padding: 20px 0;
+            padding: 3px 0;
             -webkit-transition: all 0.5s ease-in-out;
             -moz-transition: all 0.5s ease-in-out;
             -o-transition: all 0.5s ease-in-out;

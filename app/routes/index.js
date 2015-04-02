@@ -5,7 +5,7 @@ var http = require("http");
 /* GET home page. */
 router.get('/', function (req, res) {
     var opts = {
-        host: "api.whatsmyrepo.crea-ko.com",
+        host: "localhost",
         port: 80,
         path: "/api/reputation",
         method: "GET",
